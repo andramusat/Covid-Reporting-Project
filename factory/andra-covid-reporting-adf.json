@@ -1,0 +1,9 @@
+{
+	"name": "andra-covid-reporting-adf",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cc73de8e-46e4-4411-8e7e-b203b4604fca",
+		"tenantId": "7e185ec6-ac86-4ef6-b3ab-f0e224a21cd6"
+	}
+}
