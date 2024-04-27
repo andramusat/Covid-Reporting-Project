@@ -26,7 +26,7 @@ from pyspark.sql.functions import *
 
 # COMMAND ----------
 
-df_raw_population = spark.read.csv("/mnt/<storage account name>/raw/population", sep=r'\t', header=True)
+df_raw_population = spark.read.csv("/mnt/andracovidreportingdl/raw/population", sep=r'\t', header=True)
 df_raw_population = df_raw_population.withColumn('age_group', regexp_replace(split(df_raw_population['indic_de,geo\\time'], ',')[0], 'PC_', '')).withColumn('country_code', split(df_raw_population['indic_de,geo\\time'], ',')[1])
 df_raw_population = df_raw_population.select(col("country_code").alias("country_code"),
                                              col("age_group").alias("age_group"),
@@ -52,7 +52,7 @@ df_raw_population_pivot.createOrReplaceTempView("raw_population_pivot")
 # COMMAND ----------
 
 # Create a data frame for the country lookup
-df_dim_country = spark.read.csv("/mnt/<storage account name>/lookup/dim_country", sep=r',', header=True)
+df_dim_country = spark.read.csv("/mnt/andracovidreportingdl/lookup/dim_country", sep=r',', header=True)
 df_dim_country.createOrReplaceTempView("dim_country")
 
 # COMMAND ----------
@@ -83,7 +83,7 @@ df_processed_population = spark.sql("""SELECT c.country,
 
 # COMMAND ----------
 
-df_processed_population.write.format("com.databricks.spark.csv").option("header","true").option("delimiter", ",").mode("overwrite").save("/mnt/<storage account name>/processed/population")
+df_processed_population.write.format("com.databricks.spark.csv").option("header","true").option("delimiter", ",").mode("overwrite").save("/mnt/andracovidreportingdl/processed/population")
 
 # COMMAND ----------
 
