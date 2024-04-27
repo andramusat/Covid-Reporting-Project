@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "andra-dev-ci-cd-demo-adf"
+        },
+        "ls_ci_cd_demo_kv_properties_typeProperties_baseUrl": {
+            "value": "https://andra-dev-ci-cd-demo-kv.vault.azure.net/"
+        },
+        "ls_cicddemodl_access_keys_properties_typeProperties_url": {
+            "value": "https://andradevcicddemodl.dfs.core.windows.net/"
+        },
+        "ls_cicddemodl_managed_identity_properties_typeProperties_url": {
+            "value": "https://andradevcicddemodl.dfs.core.windows.net/"
+        },
+        "containerUri": {
+            "value": ""
+        },
+        "containerSasToken": {
+            "value": ""
+        }
+    }
+}
